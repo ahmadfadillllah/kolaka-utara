@@ -75,21 +75,23 @@ data-image-src="{{ asset('home') }}/assets/img/photos/wd8.jpg">
                                                 @endforeach
                                             </ul>
                                         </div>
-                                        <div class="mb-0 xl:!mb-2 lg:!mb-2 md:!mb-2">
-                                            <div class="dropdown share-dropdown btn-group">
-                                                <a href="{{ route('home.event.like', ['uuid' => request('uuid')]) }}" class="btn btn-sm btn-red text-white !bg-[#e2626b] border-[#e2626b] hover:text-white hover:bg-[#e2626b] hover:border-[#e2626b] focus:shadow-[rgba(92,140,229,1)] active:text-white active:bg-[#e2626b] active:border-[#e2626b] disabled:text-white disabled:bg-[#e2626b] disabled:border-[#e2626b] !rounded-[50rem] btn-icon btn-icon-start dropdown-toggle !mb-0 mr-0 hover:translate-y-[-0.15rem] hover:shadow-[0_0.25rem_0.75rem_rgba(30,34,40,0.15)]">
-                                                    <i class="uil uil-heart-alt pr-[0.2rem] align-[-.05rem] before:content-['\eb60']"></i>
-                                                    Suka
-                                                </a>
+                                        @if (Auth::user() and Auth::user()->role != 'admin')
+                                            <div class="mb-0 xl:!mb-2 lg:!mb-2 md:!mb-2">
+                                                <div class="dropdown share-dropdown btn-group">
+                                                    <a href="{{ route('home.event.like', ['uuid' => request('uuid')]) }}" class="btn btn-sm btn-red text-white !bg-[#e2626b] border-[#e2626b] hover:text-white hover:bg-[#e2626b] hover:border-[#e2626b] focus:shadow-[rgba(92,140,229,1)] active:text-white active:bg-[#e2626b] active:border-[#e2626b] disabled:text-white disabled:bg-[#e2626b] disabled:border-[#e2626b] !rounded-[50rem] btn-icon btn-icon-start dropdown-toggle !mb-0 mr-0 hover:translate-y-[-0.15rem] hover:shadow-[0_0.25rem_0.75rem_rgba(30,34,40,0.15)]">
+                                                        <i class="uil uil-heart-alt pr-[0.2rem] align-[-.05rem] before:content-['\eb60']"></i>
+                                                        Suka
+                                                    </a>
 
-                                                <!-- Tombol "Follow" dengan UUID dari request -->
-                                                <a href="{{ route('home.event.follow', ['uuid' => request('uuid')]) }}" class="btn btn-sm btn-red text-white !bg-[#e2626b] border-[#e2626b] hover:text-white hover:bg-[#e2626b] hover:border-[#e2626b] focus:shadow-[rgba(92,140,229,1)] active:text-white active:bg-[#e2626b] active:border-[#e2626b] disabled:text-white disabled:bg-[#e2626b] disabled:border-[#e2626b] !rounded-[50rem] btn-icon btn-icon-start dropdown-toggle !mb-0 mr-0 hover:translate-y-[-0.15rem] hover:shadow-[0_0.25rem_0.75rem_rgba(30,34,40,0.15)]">
-                                                    <i class="uil uil-share-alt mr-[0.3rem] text-[0.8rem] before:content-['\ecb0']"></i>
-                                                    Follow
-                                                </a>
+                                                    <!-- Tombol "Follow" dengan UUID dari request -->
+                                                    <a href="{{ route('home.event.follow', ['uuid' => request('uuid')]) }}" class="btn btn-sm btn-red text-white !bg-[#e2626b] border-[#e2626b] hover:text-white hover:bg-[#e2626b] hover:border-[#e2626b] focus:shadow-[rgba(92,140,229,1)] active:text-white active:bg-[#e2626b] active:border-[#e2626b] disabled:text-white disabled:bg-[#e2626b] disabled:border-[#e2626b] !rounded-[50rem] btn-icon btn-icon-start dropdown-toggle !mb-0 mr-0 hover:translate-y-[-0.15rem] hover:shadow-[0_0.25rem_0.75rem_rgba(30,34,40,0.15)]">
+                                                        <i class="uil uil-share-alt mr-[0.3rem] text-[0.8rem] before:content-['\ecb0']"></i>
+                                                        Follow
+                                                    </a>
+                                                </div>
+                                                <!--/.share-dropdown -->
                                             </div>
-                                            <!--/.share-dropdown -->
-                                        </div>
+                                        @endif
                                     </div>
                                     <!-- /.post-footer -->
                                 </article>

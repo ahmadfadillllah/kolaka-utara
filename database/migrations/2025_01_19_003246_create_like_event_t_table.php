@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('uuid')->index();
             $table->boolean('statusenabled')->default(1);
             $table->string('event_uuid')->index();
+            $table->string('user_uuid')->index();
             $table->string('ip_address');
             $table->timestamps();
         });

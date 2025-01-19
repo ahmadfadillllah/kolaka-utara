@@ -189,6 +189,7 @@ class EventHomeController extends Controller
             FollowEvent::create([
                 'uuid' => (string) Uuid::uuid4()->toString(),
                 'event_uuid' => $uuid,
+                'user_uuid' => Auth::user()->uuid,
                 'ip_address' => $request->ip(),
             ]);
 
@@ -206,6 +207,7 @@ class EventHomeController extends Controller
             LikeEvent::create([
                 'uuid' => (string) Uuid::uuid4()->toString(),
                 'event_uuid' => $uuid,
+                'user_uuid' => Auth::user()->uuid,
                 'ip_address' => $request->ip(),
             ]);
 
