@@ -1,4 +1,4 @@
-@include('home.layout.head')
+@include('home.layout.head', ['title' => 'Detail Event'])
 @include('home.layout.header')
 <section class="wrapper image-wrapper bg-image bg-overlay !text-white !bg-fixed bg-no-repeat bg-[center_center] bg-cover relative z-0 before:content-[''] before:block before:absolute before:z-[1] before:w-full before:h-full before:left-0 before:top-0 before:bg-[rgba(30,34,40,.5)]"
 data-image-src="{{ asset('home') }}/assets/img/photos/wd8.jpg">

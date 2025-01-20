@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventHomeController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriEventController;
 use App\Http\Controllers\KontakController;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::post('/ulasan/post', [HomeController::class, 'ulasan'])->name('home.ulasan');
 
 Route::get('/auth/login', [AuthController::class, 'login'])->name('login');
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('logout');
@@ -32,6 +34,10 @@ Route::get('/event/show/{uuid}', [EventHomeController::class, 'show'])->name('ho
 Route::get('/event/follow/{uuid}', [EventHomeController::class, 'follow'])->name('home.event.follow');
 Route::get('/event/like/{uuid}', [EventHomeController::class, 'like'])->name('home.event.like');
 Route::post('/event/comment', [EventHomeController::class, 'comment'])->name('home.event.comment');
+
+Route::get('/galeri', [HomeController::class, 'galeri'])->name('home.galeri');
+
+Route::get('/about', [HomeController::class, 'about'])->name('home.about');
 
 Route::group(['middleware' => ['auth']], function(){
     //dashboard
@@ -51,6 +57,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboards/tags-event/index', [TagsController::class, 'index'])->name('tagsevent.index');
     Route::post('/dashboards/tags-event/insert', [TagsController::class, 'insert'])->name('tagsevent.insert');
     Route::get('/dashboards/tags-event/delete/{uuid}', [TagsController::class, 'delete'])->name('tagsevent.delete');
+
+    Route::get('/dashboards/galeri/index', [GaleriController::class, 'index'])->name('galeri.index');
+    Route::post('/dashboards/galeri/insert', [GaleriController::class, 'insert'])->name('galeri.insert');
+    Route::get('/dashboards/galeri/delete/{uuid}', [GaleriController::class, 'delete'])->name('galeri.delete');
 
     Route::get('/dashboards/event/index', [EventController::class, 'index'])->name('event.index');
     Route::get('/dashboards/event/insert', [EventController::class, 'insert'])->name('event.insert');

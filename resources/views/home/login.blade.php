@@ -1,4 +1,4 @@
-@include('home.layout.head')
+@include('home.layout.head', ['title' => 'Login'])
 @include('home.layout.header')
 <!-- /header -->
 <section

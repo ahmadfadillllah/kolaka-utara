@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galeri;
 use App\Models\Kontak;
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
 
 class HomeController extends Controller
@@ -11,7 +14,8 @@ class HomeController extends Controller
     //
     public function index()
     {
-        return view('home.index');
+        $ulasan = Ulasan::where('statusenabled', true)->get();
+        return view('home.index', compact('ulasan'));
     }
 
     public function kontak()
@@ -40,5 +44,35 @@ class HomeController extends Controller
         }
     }
 
+    public function galeri()
+    {
+        $galeri = DB::table('galeri_m as ga')
+        ->leftjoin('file_m as fl', 'ga.file_uuid', 'fl.uuid')
+        ->select('ga.uuid', 'ga.statusenabled', 'fl.path')
+        ->where('ga.statusenabled', true)->get();
 
+        return view('home.galeri', compact('galeri'));
+    }
+
+    public function about()
+    {
+        return view('home.about');
+    }
+
+    public function ulasan(Request $request)
+    {
+        try {
+
+            Ulasan::create([
+                'uuid' => (string) Uuid::uuid4()->toString(),
+                'nama' => $request->nama,
+                'pekerjaan' => $request->pekerjaan,
+                'ulasan' => $request->ulasan,
+            ]);
+
+            return redirect()->back()->with('success', 'Berhasil memberikan ulasan');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('info', 'Gagal memberikan ulasan\n' . $th->getMessage());
+        }
+    }
 }

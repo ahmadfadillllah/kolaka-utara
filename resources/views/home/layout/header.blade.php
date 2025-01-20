@@ -24,10 +24,10 @@
                             <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.event') }}">Event</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.index') }}">Galeri</a>
+                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.galeri') }}">Galeri</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.index') }}">Tentang Kami</a>
+                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.about') }}">Tentang</a>
                         </li>
                     </ul>
                     <!-- /.navbar-nav -->

@@ -6,6 +6,10 @@
                 <div class="widget">
                     <img class="!mb-4" src="{{ asset('home') }}/assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x"
                         alt="image">
+                    <p class="!mb-4">Kolaka Utara adalah sebuah kabupaten di Provinsi Sulawesi Tenggara, Indonesia, yang terkenal dengan kekayaan sumber daya alamnya,
+                        termasuk nikel, emas dan tanah yang subur untuk pertanian. Ibu Kota Kolaka Utara ada Lasusua. Wilayah ini memiliki karakteristik geografis yang beragam, meliputi pegunungan,
+                        sungai, serta area pesisir disepanjang teluk Bone.
+                    </p>
                     <p class="!mb-4">© Copyright Otoritas Pemda Kolaka Utara 2025</p>
                     <nav class="nav social social-white">
                         <a class="m-[0_.7rem_0_0] text-[1rem] transition-all duration-[0.2s] ease-in-out translate-y-0 hover:translate-y-[-0.15rem]"

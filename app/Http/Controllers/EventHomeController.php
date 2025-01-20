@@ -57,6 +57,35 @@ class EventHomeController extends Controller
         }
         $event = $event->paginate(4);
 
+        $popular = DB::table('event_m as ev')
+        ->leftjoin('kategori_event_m as ka', 'ev.kategori_event_uuid', 'ka.uuid')
+        ->leftjoin('file_m as fl', 'ev.file_uuid', 'fl.uuid')
+        ->leftjoin('komentar_event_t as com', 'ev.uuid', '=', 'com.event_uuid')
+        ->leftjoin('like_event_t as li', 'ev.uuid', '=', 'li.event_uuid')
+        ->leftjoin('lihat_event_t as hat', 'ev.uuid', '=', 'hat.event_uuid')
+        ->select(
+            'ev.uuid',
+            'ev.judul',
+            'ev.deskripsi',
+            'ev.created_at',
+            'ev.statusenabled',
+            'fl.path',
+            'ka.nama as nama_kategori',
+            DB::raw('COUNT(DISTINCT com.uuid) as jumlah_komentar'),
+            DB::raw('COUNT(DISTINCT li.uuid) as jumlah_like'),
+            DB::raw('COUNT(DISTINCT hat.uuid) as jumlah_lihat')
+        )
+        ->where('ev.statusenabled', true)
+        ->groupBy(
+            'ev.uuid', // Kolom yang dipilih dari ev
+            'ev.judul',
+            'ev.deskripsi',
+            'ev.created_at',
+            'ev.statusenabled',
+            'fl.path',
+            'ka.nama' // Kolom yang dipilih dari ka dan fl
+        )->orderByDesc('jumlah_lihat')->take(3)->get();
+
         $kategori = DB::table('event_m as ev')
         ->leftJoin('kategori_event_m as ka', 'ev.kategori_event_uuid', 'ka.uuid')
         ->leftJoin('file_m as fl', 'ev.file_uuid', 'fl.uuid')
@@ -73,6 +102,7 @@ class EventHomeController extends Controller
             'event' => $event,
             'tags' => $tags,
             'kategori' => $kategori,
+            'popular' => $popular,
         ];
 
         return view('home.event.index', compact('data'))->with([

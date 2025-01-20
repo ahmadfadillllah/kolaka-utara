@@ -9,7 +9,7 @@
     <meta name="description" content="Kabupaten Kolaka Utara, yang terletak di Provinsi Sulawesi Tenggara, Indonesia, adalah daerah yang menyimpan banyak potensi alam dan budaya yang menakjubkan. Dikenal dengan keindahan alamnya, Kolaka Utara menawarkan pemandangan alam yang memukau, seperti pantai-pantai indah, pegunungan, dan air terjun yang menawan">
     <meta name="keywords" content="Kolaka Utara">
     <meta name="author" content="Kolaka Utara">
-    <title>Home - {{ config('app.name') }}</title>
+    <title>{{ $title }} - {{ config('app.name') }}</title>
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>

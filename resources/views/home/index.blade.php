@@ -1,4 +1,4 @@
-@include('home.layout.head')
+@include('home.layout.head', ['title' => 'Home'])
 @include('home.layout.header')
 <!-- /header -->
 <section class="wrapper  bg-[#21262c] opacity-100 ">
@@ -153,56 +153,29 @@
                     data-margin="30" data-dots="true">
                     <div class="swiper">
                         <div class="swiper-wrapper">
+                            @foreach ($ulasan as $ab)
                             <div class="swiper-slide">
                                 <blockquote
                                     class="icon relative p-0 border-0 text-[1rem] leading-[1.7] font-medium m-[0_0_1rem] before:content-['\201d'] before:absolute before:top-[-1.5rem] before:left-[-0.9rem] before:text-[rgba(52,63,82,0.05)] before:text-[10rem] before:leading-none before:z-[1]">
-                                    <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                                        Vestibulum ligula porta felis euismod semper. Cras justo odio
-                                        consectetur nulla dapibus curabitur blandit.”</p>
+                                    <p>“{{ $ab->ulasan }}”</p>
                                     <div class="flex items-center text-left">
                                         <div class="info !pl-0">
-                                            <h5 class="!mb-1 text-[.95rem] !leading-[1.5]">Coriss Ambady</h5>
-                                            <p class="!mb-0 text-[0.8rem]">Financial Analyst</p>
+                                            <h5 class="!mb-1 text-[.95rem] !leading-[1.5]">{{ $ab->nama }}</h5>
+                                            <p class="!mb-0 text-[0.8rem]">{{ $ab->pekerjaan }}</p>
                                         </div>
                                     </div>
                                 </blockquote>
                             </div>
-                            <!--/.swiper-slide -->
-                            <div class="swiper-slide">
-                                <blockquote
-                                    class="icon relative p-0 border-0 text-[1rem] leading-[1.7] font-medium m-[0_0_1rem] before:content-['\201d'] before:absolute before:top-[-1.5rem] before:left-[-0.9rem] before:text-[rgba(52,63,82,0.05)] before:text-[10rem] before:leading-none before:z-[1]">
-                                    <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                                        Vestibulum ligula porta felis euismod semper. Cras justo odio
-                                        consectetur adipiscing dapibus curabitur blandit.”</p>
-                                    <div class="flex items-center text-left">
-                                        <div class="info !pl-0">
-                                            <h5 class="!mb-1 text-[.95rem] !leading-[1.5]">Cory Zamora</h5>
-                                            <p class="!mb-0 text-[0.8rem]">Marketing Specialist</p>
-                                        </div>
-                                    </div>
-                                </blockquote>
-                            </div>
-                            <!--/.swiper-slide -->
-                            <div class="swiper-slide">
-                                <blockquote
-                                    class="icon relative p-0 border-0 text-[1rem] leading-[1.7] font-medium m-[0_0_1rem] before:content-['\201d'] before:absolute before:top-[-1.5rem] before:left-[-0.9rem] before:text-[rgba(52,63,82,0.05)] before:text-[10rem] before:leading-none before:z-[1]">
-                                    <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                                        Vestibulum ligula porta felis euismod semper. Cras justo odio
-                                        consectetur adipiscing dapibus curabitur blandit.”</p>
-                                    <div class="flex items-center text-left">
-                                        <div class="info !pl-0">
-                                            <h5 class="!mb-1 text-[.95rem] !leading-[1.5]">Nikolas Brooten</h5>
-                                            <p class="!mb-0 text-[0.8rem]">Sales Manager</p>
-                                        </div>
-                                    </div>
-                                </blockquote>
-                            </div>
+                            @endforeach
+
                             <!--/.swiper-slide -->
                         </div>
                         <!--/.swiper-wrapper -->
                     </div>
                     <!-- /.swiper -->
                 </div>
+                <a href="#" class="btn btn-outline-gradient gradient-1 !rounded-[50rem] mr-1 mb-2 md:mb-0" data-bs-toggle="modal" data-bs-target="#modal-02"><span>Berikan ulasan untuk kami.</span></a>
+                @include('home.modal.ulasan')
                 <!-- /.swiper-container -->
             </div>
             <!--/column -->
@@ -211,5 +184,6 @@
     </div>
     <!-- /.container -->
 </section>
+
 
 @include('home.layout.footer')

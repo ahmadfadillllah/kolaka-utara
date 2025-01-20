@@ -49,6 +49,13 @@
                 <div class="menu-title">Tags Event</div>
             </a>
         </li>
+        <li>
+            <a href="{{ route('galeri.index') }}">
+                <div class="parent-icon"><i class="bx bx-spa"></i>
+                </div>
+                <div class="menu-title">Galeri</div>
+            </a>
+        </li>
         <li class="menu-label">Others</li>
         <li>
             <a href="{{ route('users.index') }}">
