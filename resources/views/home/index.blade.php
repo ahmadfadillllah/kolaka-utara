@@ -7,7 +7,7 @@
         <div class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide bg-overlay bg-overlay-400  bg-[#21262c] opacity-100  bg-image !bg-cover !bg-[center_center] !h-[750px] before:content-[''] before:block before:absolute before:z-[1] before:w-full before:h-full before:left-0 before:top-0 before:bg-[rgba(30,34,40,.4)]"
-                    data-image-src="{{ asset('home') }}/assets/img/photos/wd1.jpg">
+                    data-image-src="{{ asset('home') }}/assets/img/photos/wd12.jpg">
                     <div class="container !h-full">
                         <div class="flex flex-wrap mx-[-15px] !h-full">
                             <div
@@ -51,7 +51,7 @@
                     <!--/.container -->
                 </div>
                 <!--/.swiper-slide -->
-                <div class="swiper-slide bg-overlay bg-overlay-400  bg-[#21262c] opacity-100  bg-image !bg-cover !bg-[center_center] !h-[750px] before:content-[''] before:block before:absolute before:z-[1] before:w-full before:h-full before:left-0 before:top-0 before:bg-[rgba(30,34,40,.4)]"
+                {{-- <div class="swiper-slide bg-overlay bg-overlay-400  bg-[#21262c] opacity-100  bg-image !bg-cover !bg-[center_center] !h-[750px] before:content-[''] before:block before:absolute before:z-[1] before:w-full before:h-full before:left-0 before:top-0 before:bg-[rgba(30,34,40,.4)]"
                     data-image-src="{{ asset('home') }}/assets/img/photos/wd3.jpg">
                     <div class="container !h-full">
                         <div class="flex flex-wrap mx-[-15px] !h-full">
@@ -71,7 +71,7 @@
                         <!--/.row -->
                     </div>
                     <!--/.container -->
-                </div>
+                </div> --}}
                 <!--/.swiper-slide -->
             </div>
             <!--/.swiper-wrapper -->
