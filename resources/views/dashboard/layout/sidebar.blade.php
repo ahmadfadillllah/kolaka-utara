@@ -20,26 +20,21 @@
         </li>
 
         <li class="menu-label">Web Apps</li>
-        <li>
-            <a href="{{ route('event.index') }}">
-                <div class="parent-icon"><i class="bx bx-task"></i>
-                </div>
-                <div class="menu-title">Event</div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('kontak.index') }}">
-                <div class="parent-icon"><i class="bx bx-help-circle"></i>
-                </div>
-                <div class="menu-title">Kontak Kami</div>
-            </a>
-        </li>
+
+
 
         <li>
             <a href="{{ route('kategorievent.index') }}">
                 <div class="parent-icon"><i class="bx bx-user-circle"></i>
                 </div>
                 <div class="menu-title">Kategori Event</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('event.index') }}">
+                <div class="parent-icon"><i class="bx bx-task"></i>
+                </div>
+                <div class="menu-title">Event</div>
             </a>
         </li>
         <li>
@@ -50,12 +45,19 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('kontak.index') }}">
+                <div class="parent-icon"><i class="bx bx-help-circle"></i>
+                </div>
+                <div class="menu-title">Kontak Kami</div>
+            </a>
+        </li>
+        {{-- <li>
             <a href="{{ route('galeri.index') }}">
                 <div class="parent-icon"><i class="bx bx-spa"></i>
                 </div>
                 <div class="menu-title">Galeri</div>
             </a>
-        </li>
+        </li> --}}
         <li class="menu-label">Others</li>
         <li>
             <a href="{{ route('users.index') }}">

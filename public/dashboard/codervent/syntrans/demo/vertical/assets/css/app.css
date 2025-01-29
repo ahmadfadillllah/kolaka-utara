@@ -6,7 +6,7 @@ Email: codervent@gmail.com
 File: app.css
 */
 
-/*  
+/*
   - Google Font
   - General
   - Header
@@ -50,10 +50,10 @@ body {
 	letter-spacing: .1px;
 
 	font-size: 14px;
-	
+
 	overflow-x:hidden;
 
-	color: #ffffff;
+	color: #000000;
 
 }
 
@@ -1105,7 +1105,7 @@ sup {
 
 	font-size: 15px;
 
-	color: rgb(255 255 255 / 65%);
+	color: rgba(0, 0, 0, 0.65);
 
 	outline-width: 0;
 
@@ -1179,7 +1179,7 @@ sup {
 
 .sidebar-wrapper .metismenu .mm-active>a {
 
-	color: #ffffff;
+	color: #000000;
 
 	text-decoration: none;
 
@@ -2751,7 +2751,7 @@ select option {
 
 	vertical-align: middle;
 
-	color: #e5e9ec;
+	color: #000000;
 
 	border-top: 1px solid rgb(255 255 255 / 14%);
 

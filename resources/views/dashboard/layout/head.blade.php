@@ -37,7 +37,7 @@
 
 </head>
 
-<body class="bg-theme bg-theme9">
+<body class="bg-theme bg-theme2">
 	<!-- wrapper -->
 	<div class="wrapper">
         @include('notification.index')

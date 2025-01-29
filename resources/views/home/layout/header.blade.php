@@ -23,9 +23,9 @@
                         <li class="nav-item">
                             <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.event') }}">Event</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.galeri') }}">Galeri</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.about') }}">Tentang</a>
                         </li>
@@ -68,7 +68,7 @@
                     </li>
                   @if (!Auth::user())
                   <li class="nav-item hidden xl:block lg:block md:block">
-                    <a class='btn btn-sm btn-white !rounded-[50rem] hover:translate-y-[-0.15rem] hover:shadow-[0_0.25rem_0.75rem_rgba(30,34,40,0.15)]' href='{{ route('login') }}'>Masuk</a>
+                    <a class='btn btn-sm btn-white !rounded-[50rem] hover:translate-y-[-0.15rem] hover:shadow-[0_0.25rem_0.75rem_rgba(30,34,40,0.15)]' href='{{ route('login') }}'>Login</a>
                   </li>
                   @endif
                   @if (Auth::user() and Auth::user()->role == 'admin')

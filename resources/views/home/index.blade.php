@@ -117,7 +117,7 @@
             <!--/column -->
         </div>
         <!--/.row -->
-        <div class="flex flex-wrap mx-[-15px] mb-5">
+        {{-- <div class="flex flex-wrap mx-[-15px] mb-5">
             <div
                 class="md:w-10/12 lg:w-10/12 xl:w-8/12 xxl:w-7/12 w-full flex-[0_0_auto] px-[15px] max-w-full !mx-auto !text-center">
                 <img src="{{ asset('home') }}/assets/img/icons/lineal/list.svg"
@@ -127,14 +127,14 @@
                     Apa kata mereka?</h2>
             </div>
             <!-- /column -->
-        </div>
+        </div> --}}
 
         <!--/.row -->
     </div>
     <!-- /.container -->
 </section>
 <!-- /section -->
-<section class="wrapper !bg-[#edf2fc]">
+{{-- <section class="wrapper !bg-[#edf2fc]">
     <div class="container pt-24 pb-[4.5rem] xl:pb-0 lg:pb-0 md:pb-0">
         <div class="flex flex-wrap mx-[-15px] lg:mx-[-20px] xl:mx-0 items-center">
             <div
@@ -183,7 +183,7 @@
         <!--/.row -->
     </div>
     <!-- /.container -->
-</section>
+</section> --}}
 
 
 @include('home.layout.footer')

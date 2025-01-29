@@ -3,7 +3,7 @@
 <!-- /header -->
 <section
     class="wrapper image-wrapper bg-image bg-overlay bg-overlay-400 text-white bg-no-repeat bg-[center_center] bg-cover relative z-0 !bg-fixed before:content-[''] before:block before:absolute before:z-[1] before:w-full before:h-full before:left-0 before:top-0 before:bg-[rgba(30,34,40,.4)]"
-    data-image-src="{{ asset('home') }}/assets/img/photos/wd13.webp">
+    data-image-src="{{ asset('home') }}/assets/img/photos/wd13.jpg">
     <div
         class="container pt-28 pb-40 xl:pt-36 lg:pt-36 md:pt-36 xl:pb-[12.5rem] lg:pb-[12.5rem] md:pb-[12.5rem] !text-center">
         <div class="flex flex-wrap mx-[-15px]">
@@ -14,15 +14,6 @@
             </div>
             <!-- /column -->
         </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container -->
-</section>
-<!-- /section -->
-<section
-    class="wrapper !bg-[#ffffff]   relative border-0 upper-end before:top-[-4rem] before:border-l-transparent before:border-r-[100vw] before:border-t-[4rem] before:border-[#fefefe] before:content-[''] before:block before:absolute before:z-0 before:border-y-transparent before:border-0 before:border-solid before:right-0">
-    <div class="container pb-12">
-        <!-- /.row -->
         <div class="flex flex-wrap mx-[-15px]">
             <div
                 class="xl:w-8/12 xl:!ml-[16.66666667%] lg:w-10/12 lg:!ml-[8.33333333%] w-full flex-[0_0_auto] px-[15px] max-w-full">
@@ -73,5 +64,6 @@
     </div>
     <!-- /.container -->
 </section>
+
 </div>
 @include('home.layout.footer')

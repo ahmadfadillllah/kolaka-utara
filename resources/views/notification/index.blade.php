@@ -1,7 +1,7 @@
 @if (session('success'))
     <script>
         Swal.fire(
-        'Yaay!',
+        '',
         '{{ session('success') }}',
         'success'
         )
