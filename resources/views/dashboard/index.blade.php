@@ -1,109 +1,148 @@
-@include('dashboard.layout.head', ['title' => 'Dashboard'])
-@include('dashboard.layout.sidebar')
-@include('dashboard.layout.header')
+@include('layout.head', ['title' => 'Dashboard'])
+@include('layout.topbar')
+@include('layout.leftbar')
+
 <div class="page-wrapper">
-    <div class="page-content-wrapper">
-        <div class="page-content">
-            <div class="row">
-                <div class="col-12 col-lg-4">
-                    <div class="card radius-15">
+    <div class="page-content">
+        <div class="container-xxl">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
                         <div class="card-body">
-                            <div class="d-flex mb-2">
-                                <div>
-                                    <p class="mb-0 font-weight-bold text-white">Like Event</p>
-                                    <h2 class="mb-0 text-white">{{ $data['like']->count() }}</h2>
+                            <div class="row d-flex justify-content-center border-dashed-bottom pb-3">
+                                <div class="col-9">
+                                    <p class="text-dark mb-0 fw-semibold fs-14">Like Event</p>
+                                    <h3 class="mt-2 mb-0 fw-bold">{{ $data['like']->count() }}</h3>
                                 </div>
-                                <div class="ml-auto align-self-end">
-                                    <p class="mb-0 font-14"><i class='bx bxs-up-arrow-circle'></i>
-                                        <span>
-                                            {{ $data['like']->filter(function ($item) {
-                                                return \Carbon\Carbon::parse($item->created_at)->isToday(); // Mengecek apakah tanggalnya hari ini
-                                            })->count() }} hari ini
-                                        </span>
-                                    </p>
+                                <!--end col-->
+                                <div class="col-3 align-self-center">
+                                    <div
+                                        class="d-flex justify-content-center align-items-center thumb-xl bg-light rounded-circle mx-auto">
+                                        <i class="iconoir-hexagon-dice h1 align-self-center mb-0 text-secondary"></i>
+                                    </div>
                                 </div>
+                                <!--end col-->
                             </div>
-                            <div id="chart1"></div>
+
                         </div>
+                        <!--end card-body-->
                     </div>
+                    <!--end card-->
                 </div>
-                <div class="col-12 col-lg-4">
-                    <div class="card radius-15">
+                <!--end col-->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
                         <div class="card-body">
-                            <div class="d-flex mb-2">
-                                <div>
-                                    <p class="mb-0 font-weight-bold text-white">Visitors</p>
-                                    <h2 class="mb-0 text-white">{{ $data['lihat']->count() }}</h2>
+                            <div class="row d-flex justify-content-center border-dashed-bottom pb-3">
+                                <div class="col-9">
+                                    <p class="text-dark mb-0 fw-semibold fs-14">Visitor</p>
+                                    <h3 class="mt-2 mb-0 fw-bold">{{ $data['lihat']->count() }}</h3>
                                 </div>
-                                <div class="ml-auto align-self-end">
-                                    <p class="mb-0 font-14"><i class='bx bxs-up-arrow-circle'></i>
-                                    <span>
-                                        {{ $data['lihat']->filter(function ($item) {
-                                            return \Carbon\Carbon::parse($item->created_at)->isToday(); // Mengecek apakah tanggalnya hari ini
-                                        })->count() }} hari ini
-                                    </span>
-                                    </p>
+                                <!--end col-->
+                                <div class="col-3 align-self-center">
+                                    <div
+                                        class="d-flex justify-content-center align-items-center thumb-xl bg-light rounded-circle mx-auto">
+                                        <i class="iconoir-clock h1 align-self-center mb-0 text-secondary"></i>
+                                    </div>
                                 </div>
+                                <!--end col-->
                             </div>
-                            <div id="chart2"></div>
+                            <!--end row-->
+
                         </div>
+                        <!--end card-body-->
                     </div>
+                    <!--end card-->
                 </div>
-                <div class="col-12 col-lg-4">
-                    <div class="card radius-15">
+                <!--end col-->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
                         <div class="card-body">
-                            <div class="d-flex mb-2">
-                                <div>
-                                    <p class="mb-0 font-weight-bold text-white">Follow Event</p>
-                                    <h2 class="mb-0 text-white">{{ $data['follow']->count() }}</h2>
+                            <div class="row d-flex justify-content-center border-dashed-bottom pb-3">
+                                <div class="col-9">
+                                    <p class="text-dark mb-0 fw-semibold fs-14">Follow Event</p>
+                                    <h3 class="mt-2 mb-0 fw-bold">{{ $data['follow']->count() }}</h3>
                                 </div>
-                                <div class="ml-auto align-self-end">
-                                    <p class="mb-0 font-14"><i class='bx bxs-up-arrow-circle'></i>
-                                        <span>
-                                            {{ $data['follow']->filter(function ($item) {
-                                                return \Carbon\Carbon::parse($item->created_at)->isToday(); // Mengecek apakah tanggalnya hari ini
-                                            })->count() }} hari ini
-                                        </span>
-                                    </p>
+                                <!--end col-->
+                                <div class="col-3 align-self-center">
+                                    <div
+                                        class="d-flex justify-content-center align-items-center thumb-xl bg-light rounded-circle mx-auto">
+                                        <i
+                                            class="iconoir-percentage-circle h1 align-self-center mb-0 text-secondary"></i>
+                                    </div>
                                 </div>
+                                <!--end col-->
                             </div>
-                            <div id="chart3"></div>
+                            <!--end row-->
+
                         </div>
+                        <!--end card-body-->
                     </div>
+                    <!--end card-->
                 </div>
+                <!--end col-->
             </div>
             <!--end row-->
-            {{-- <div class="row">
 
-                <div class="col-12 col-lg-12">
-                    <div class="card radius-15">
-                        <div class="card-body">
-                            <div class="d-lg-flex align-items-center">
-                                <div>
-                                    <h5 class="mb-4">Devices Monitoring</h5>
-                                </div>
-                            </div>
-                            <div id="chart5"></div>
-                        </div>
-                        <ul class="list-group list-group-flush mb-0">
-                            <li
-                                class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                                CPU Usage<span class="badge bg-transparent-1 text-white badge-pill">{{ $data['cpuUsage'] }}</span>
-                            </li>
-                            <li
-                                class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                                Memory Usage<span class="badge bg-white badge-pill text-dark">65%</span>
-                            </li>
-                            <li
-                                class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                                Disk Usage<span class="badge bg-transparent-2 text-white badge-pill">10%</span>
-                            </li>
-                        </ul>
+            <!--end row-->
+        </div><!-- container -->
+
+        <!--Start Rightbar-->
+        <!--Start Rightbar/offcanvas-->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="Appearance" aria-labelledby="AppearanceLabel">
+            <div class="offcanvas-header border-bottom justify-content-between">
+                <h5 class="m-0 font-14" id="AppearanceLabel">Appearance</h5>
+                <button type="button" class="btn-close text-reset p-0 m-0 align-self-center" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <h6>Account Settings</h6>
+                <div class="p-2 text-start mt-3">
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch1">
+                        <label class="form-check-label" for="settings-switch1">Auto updates</label>
                     </div>
+                    <!--end form-switch-->
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch2" checked>
+                        <label class="form-check-label" for="settings-switch2">Location Permission</label>
+                    </div>
+                    <!--end form-switch-->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="settings-switch3">
+                        <label class="form-check-label" for="settings-switch3">Show offline Contacts</label>
+                    </div>
+                    <!--end form-switch-->
                 </div>
-            </div> --}}
+                <!--end /div-->
+                <h6>General Settings</h6>
+                <div class="p-2 text-start mt-3">
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch4">
+                        <label class="form-check-label" for="settings-switch4">Show me Online</label>
+                    </div>
+                    <!--end form-switch-->
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="settings-switch5" checked>
+                        <label class="form-check-label" for="settings-switch5">Status visible to all</label>
+                    </div>
+                    <!--end form-switch-->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="settings-switch6">
+                        <label class="form-check-label" for="settings-switch6">Notifications Popup</label>
+                    </div>
+                    <!--end form-switch-->
+                </div>
+                <!--end /div-->
+            </div>
+            <!--end offcanvas-body-->
         </div>
+        <!--end Rightbar/offcanvas-->
+        <!--end Rightbar-->
+        <!--Start Footer-->
+
+
+        <!--end footer-->
     </div>
-    <!--end page-content-wrapper-->
 </div>
-@include('dashboard.layout.footer')
+@include('layout.footer')
