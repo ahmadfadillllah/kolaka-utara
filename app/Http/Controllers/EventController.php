@@ -95,4 +95,35 @@ class EventController extends Controller
             return redirect()->back()->with('info', nl2br('Hapus event gagal...\n' . $th->getMessage()));
         }
     }
+
+    public function done($uuid)
+    {
+
+        $event = Event::where('uuid', $uuid)->first();
+
+        if($event->done == true){
+            try {
+                Event::where('uuid', $uuid)->update([
+                    'done' => false,
+                ]);
+
+                return redirect()->back()->with('success', 'Update event berhasil');
+
+            } catch (\Throwable $th) {
+                return redirect()->back()->with('info', nl2br('Update event gagal...\n' . $th->getMessage()));
+            }
+        }else{
+            try {
+                Event::where('uuid', $uuid)->update([
+                    'done' => true,
+                ]);
+
+                return redirect()->back()->with('success', 'Update event berhasil');
+
+            } catch (\Throwable $th) {
+                return redirect()->back()->with('info', nl2br('Update event gagal...\n' . $th->getMessage()));
+            }
+        }
+
+    }
 }

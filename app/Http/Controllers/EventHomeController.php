@@ -30,6 +30,7 @@ class EventHomeController extends Controller
             'ev.deskripsi',
             'ev.created_at',
             'ev.statusenabled',
+            'ev.done',
             'fl.path',
             'ka.nama as nama_kategori',
             DB::raw('COUNT(DISTINCT com.uuid) as jumlah_komentar'),
@@ -42,6 +43,7 @@ class EventHomeController extends Controller
             'ev.judul',
             'ev.deskripsi',
             'ev.created_at',
+            'ev.done',
             'ev.statusenabled',
             'fl.path',
             'ka.nama' // Kolom yang dipilih dari ka dan fl

@@ -94,13 +94,13 @@
                         class="item xl:w-[70%] xl:z-[3] xl:ml-[30%] xl:mt-0 lg:w-[70%] lg:z-[3] lg:ml-[30%] lg:mt-0 md:w-[70%] md:z-[3] md:ml-[30%] md:mt-0">
                         <figure class="!rounded-[.4rem] shadow-[0_0_1.25rem_rgba(30,34,40,0.04)] relative"><img
                                 class="!rounded-[.4rem] " src="{{ asset('home') }}/assets/img/photos/wd9.jpg"
-                                srcset="./assets/img/photos/about2@2x.jpg 2x" alt="image"></figure>
+                                srcset="{{ asset('home') }}/assets/img/photos/wd9.jpg" alt="image"></figure>
                     </div>
                     <div
                         class="item xl:w-[55%] xl:mt-[-45%] xl:z-[4] xl:ml-0 lg:w-[55%] lg:mt-[-45%] lg:z-[4] lg:ml-0 md:w-[55%] md:mt-[-45%] md:z-[4] md:ml-0">
                         <figure class="!rounded-[.4rem] shadow-[0_0_1.25rem_rgba(30,34,40,0.04)] relative"><img
                                 class="!rounded-[.4rem] " src="{{ asset('home') }}/assets/img/photos/wd10.jpg"
-                                srcset="./assets/img/photos/about3@2x.jpg 2x" alt="image"></figure>
+                                srcset="{{ asset('home') }}/assets/img/photos/wd10.jpg" alt="image"></figure>
                     </div>
                 </div>
             </div>

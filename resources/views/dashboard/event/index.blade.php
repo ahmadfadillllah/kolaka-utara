@@ -29,6 +29,7 @@
                                             <th>Kategori</th>
                                             <th>Judul</th>
                                             <th>Tags</th>
+                                            <th>Telah dilaksanakan?</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -38,11 +39,20 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $ev->nama_kategori }}</td>
-                                            <td>{{ $ev->judul }}</td>
+                                            <td>{{ \Illuminate\Support\Str::limit($ev->judul, 70) }}</td>
                                             <td>{{ $ev->tags }}</td>
-                                            <td><button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteEvent{{ $ev->uuid }}">Hapus</button></td>
+                                            <td>{{ $ev->done ? 'Ya' : 'Belum' }}</td>
+                                            <td>
+                                                @if ($ev->done)
+                                                <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#doneEvent{{ $ev->uuid }}">Undone</button>
+                                                @else
+                                                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#doneEvent{{ $ev->uuid }}">Done</button>
+                                                @endif
+                                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteEvent{{ $ev->uuid }}">Hapus</button>
+                                            </td>
                                         </tr>
                                         @include('dashboard.event.modal.delete')
+                                        @include('dashboard.event.modal.done')
 
                                         @endforeach
                                     </tbody>

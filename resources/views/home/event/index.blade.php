@@ -68,6 +68,9 @@
                                     <div class="!relative">
                                         {!! \Str::words($ev->deskripsi, 30, '...') !!}
                                     </div>
+                                    @if ($ev->done == true)
+                                        <p class="btn btn-soft-ash btn-sm !rounded-[50rem] flex items-center hover:translate-y-[-0.15rem] hover:shadow-[0_0.25rem_0.75rem_rgba(30,34,40,.05)] before:not-italic before:font-normal before:pr-[0.2rem]">Event telah dilaksanakan</p>
+                                    @endif
                                     <!-- /.post-content -->
                                 </div>
                                 <!--/.card-body -->

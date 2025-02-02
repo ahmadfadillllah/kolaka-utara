@@ -1,3 +1,24 @@
+<style>
+    .hide-on-mobile {
+    display: block; /* tampilkan elemen secara default */
+    }
+
+    @media (max-width: 768px) {  /* ukuran layar untuk mobile */
+        .hide-on-mobile {
+            display: none; /* sembunyikan elemen pada layar kecil (mobile) */
+        }
+    }
+
+    .hide-on-desktop {
+    display: none; /* tampilkan elemen secara default */
+    }
+
+    @media (max-width: 768px) {  /* ukuran layar untuk desktop */
+        .hide-on-desktop {
+            display: block; /* sembunyikan elemen pada layar kecil (desktop) */
+        }
+    }
+</style>
 <header class="relative wrapper !bg-[#edf2fc]">
     <nav class="navbar navbar-expand-lg center-nav transparent !absolute navbar-dark caret-none">
         <div class="container xl:flex-row lg:flex-row !flex-nowrap items-center">
@@ -29,6 +50,20 @@
                         <li class="nav-item">
                             <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.about') }}">Tentang</a>
                         </li>
+                        <li class="nav-item hide-on-desktop">
+                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.kontak') }}">Hubungi Kami</a>
+                        </li>
+                        @if (!Auth::user())
+                        <li class="nav-item hide-on-desktop">
+                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.about') }}">Login</a>
+                        </li>
+                        @endif
+                        @if (Auth::user() and Auth::user()->role == 'admin')
+                        <li class="nav-item hide-on-desktop">
+                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('dashboard.index') }}">Dashboard</a>
+                        </li>
+                        @endif
+
                     </ul>
                     <!-- /.navbar-nav -->
 
@@ -63,7 +98,7 @@
             <!-- /.navbar-collapse -->
             <div class="navbar-other w-full !flex !ml-auto">
                 <ul class="navbar-nav !flex-row !items-center !ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item hide-on-mobile">
                         <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.kontak') }}">Hubungi Kami</a>
                     </li>
                   @if (!Auth::user())

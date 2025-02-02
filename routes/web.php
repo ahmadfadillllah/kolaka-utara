@@ -66,4 +66,5 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboards/event/insert', [EventController::class, 'insert'])->name('event.insert');
     Route::post('/dashboards/event/post', [EventController::class, 'post'])->name('event.post');
     Route::get('/dashboards/event/delete/{uuid}', [EventController::class, 'delete'])->name('event.delete');
+    Route::get('/dashboards/event/done/{uuid}', [EventController::class, 'done'])->name('event.done');
 });
