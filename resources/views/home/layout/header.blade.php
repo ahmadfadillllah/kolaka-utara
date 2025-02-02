@@ -55,7 +55,7 @@
                         </li>
                         @if (!Auth::user())
                         <li class="nav-item hide-on-desktop">
-                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('home.about') }}">Login</a>
+                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('login') }}">Login</a>
                         </li>
                         @endif
                         @if (Auth::user() and Auth::user()->role == 'admin')
