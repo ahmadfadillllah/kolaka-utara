@@ -21,7 +21,7 @@ data-image-src="{{ asset('home') }}/assets/img/photos/wd6.jpg">
             <div
                 class="md:w-10/12 lg:w-8/12 xl:w-8/12 w-full md:!ml-[8.33333333%] lg:!ml-[16.66666667%] xl:!ml-[16.66666667%] flex-[0_0_auto] px-[15px] max-w-full mt-[-8rem] xl:!mt-[-15rem] lg:!mt-[-15rem] md:!mt-[-15rem]">
                 <figure class="m-0 p-0"><img class="!w-auto" src="{{ asset('home') }}/assets/img/illustrations/i8.png"
-                        srcset="{{ asset('home') }}/assets/img/illustrations/i8@2x.png 2x" alt="image"></figure>
+                        srcset="{{ asset('home') }}/assets/img/illustrations/i8.png" alt="image"></figure>
             </div>
             <!-- /column -->
         </div>
