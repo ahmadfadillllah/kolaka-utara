@@ -63,6 +63,11 @@
                             <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('dashboard.index') }}">Dashboard</a>
                         </li>
                         @endif
+                        @if (Auth::user())
+                        <li class="nav-item hide-on-desktop">
+                            <a class="nav-link font-bold !tracking-[-0.01rem]" href="{{ route('dashboard.index') }}">Logout</a>
+                        </li>
+                        @endif
 
                     </ul>
                     <!-- /.navbar-nav -->
@@ -109,6 +114,11 @@
                   @if (Auth::user() and Auth::user()->role == 'admin')
                   <li class="nav-item hidden xl:block lg:block md:block">
                     <a class='btn btn-sm btn-white !rounded-[50rem] hover:translate-y-[-0.15rem] hover:shadow-[0_0.25rem_0.75rem_rgba(30,34,40,0.15)]' href='{{ route('dashboard.index') }}'>Dashboard</a>
+                  </li>
+                  @endif
+                  @if (Auth::user())
+                  <li class="nav-item hidden xl:block lg:block md:block">
+                    <a class='btn btn-sm btn-primary !rounded-[50rem] hover:translate-y-[-0.15rem] hover:shadow-[0_0.25rem_0.75rem_rgba(30,34,40,0.15)]' href='{{ route('logout') }}'>Logout</a>
                   </li>
                   @endif
                   <li class="nav-item xl:hidden lg:hidden">
