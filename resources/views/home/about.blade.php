@@ -1,7 +1,7 @@
 @include('home.layout.head', ['title' => 'Tentang'])
 @include('home.layout.header')
 <section class="wrapper image-wrapper bg-image bg-overlay text-white bg-no-repeat bg-[center_center] bg-cover relative z-0 !bg-fixed before:content-[''] before:block before:absolute before:z-[1] before:w-full before:h-full before:left-0 before:top-0 before:bg-[rgba(30,34,40,0.5)]"
-data-image-src="{{ asset('home') }}/assets/img/photos/wd6.jpg">
+data-image-src="{{ asset('home') }}/assets/img/photos/bg22.png">
     <div
         class="container pt-10 pb-40 xl:pt-[4.5rem] lg:pt-[4.5rem] md:pt-[4.5rem] xl:pb-[17.5rem] lg:pb-[17.5rem] md:pb-[17.5rem] !text-center">
         <div class="flex flex-wrap mx-[-15px]">
