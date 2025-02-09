@@ -30,7 +30,9 @@
                                             <th>Judul</th>
                                             <th>Tags</th>
                                             <th>Telah dilaksanakan?</th>
+                                            @if (Auth::user()->role = 'admin')
                                             <th>Aksi</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -42,14 +44,17 @@
                                             <td>{{ \Illuminate\Support\Str::limit($ev->judul, 70) }}</td>
                                             <td>{{ $ev->tags }}</td>
                                             <td>{{ $ev->done ? 'Ya' : 'Belum' }}</td>
+                                            @if (Auth::user()->role = 'admin')
                                             <td>
                                                 @if ($ev->done)
                                                 <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#doneEvent{{ $ev->uuid }}">Undone</button>
                                                 @else
                                                 <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#doneEvent{{ $ev->uuid }}">Done</button>
                                                 @endif
+                                                <a href="{{ route('event.edit', $ev->uuid) }}" class="btn btn-outline-dark">Edit</a>
                                                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteEvent{{ $ev->uuid }}">Hapus</button>
                                             </td>
+                                            @endif
                                         </tr>
                                         @include('dashboard.event.modal.delete')
                                         @include('dashboard.event.modal.done')

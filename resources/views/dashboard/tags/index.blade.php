@@ -28,7 +28,9 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nama</th>
+                                            @if (Auth::user()->role = 'admin')
                                             <th>Aksi</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -37,8 +39,14 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $ta->nama }}</td>
-                                            <td><button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteTags{{ $ta->uuid }}">Hapus</button></td>
+                                            @if (Auth::user()->role = 'admin')
+                                            <td>
+                                                <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editTags{{ $ta->uuid }}">Edit</button>
+                                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteTags{{ $ta->uuid }}">Hapus</button>
+                                            </td>
+                                            @endif
                                         </tr>
+                                        @include('dashboard.tags.modal.edit')
                                         @include('dashboard.tags.modal.delete')
 
                                         @endforeach

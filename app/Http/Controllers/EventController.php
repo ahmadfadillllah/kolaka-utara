@@ -9,6 +9,7 @@ use App\Models\KategoriEvent;
 use App\Models\Tags;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
 
 class EventController extends Controller
@@ -79,6 +80,77 @@ class EventController extends Controller
 
         } catch (\Throwable $th) {
             return redirect()->route('event.index')->with('info','Event gagal ditambahkan'. $th->getMessage());
+        }
+    }
+
+    public function edit($uuid)
+    {
+        $kategori = KategoriEvent::where('statusenabled', true)->get();
+        $tags = Tags::where('statusenabled', true)->get();
+
+        $event = DB::table('event_m as ev')
+        ->leftjoin('kategori_event_m as ka', 'ev.kategori_event_uuid', 'ka.uuid')
+        ->leftjoin('file_m as fl', 'ev.file_uuid', 'fl.uuid')
+        ->select('ev.*', 'ka.nama as nama_kategori', 'fl.path')
+
+        ->where('ev.statusenabled', true)
+        ->where('ev.uuid', $uuid)->first();
+
+        // dd($event);
+
+        return view('dashboard.event.edit', compact('event', 'kategori', 'tags'));
+    }
+
+    public function update(Request $request,$uuid)
+    {
+        // dd($request->all());
+        $event = Event::where('uuid', $uuid)->first();
+        // dd($event);
+
+        // Mengubah string tags menjadi format yang benar
+        $tagsString = implode(',', $request->tags);
+
+        try {
+            $fileRecord = null;
+
+            // Jika ada file yang diupload, lakukan proses penyimpanan
+            if ($request->hasFile('file')) {
+                // Hapus file lama jika ada
+                if ($event->file_uuid) {
+                    $oldFile = File::find($event->file_uuid);
+                    if ($oldFile) {
+                        Storage::disk('public')->delete($oldFile->path);
+                        $oldFile->delete();
+                    }
+                }
+
+                // Menyimpan file baru
+                $file = $request->file('file');
+                $path = $file->store('file', 'public');
+
+                // Menyimpan informasi file ke tabel 'files'
+                $fileRecord = new File();
+                $fileRecord->uuid = (string) Uuid::uuid4()->toString();
+                $fileRecord->name = $file->getClientOriginalName();
+                $fileRecord->path = $path;
+                $fileRecord->mime_type = $file->getMimeType();
+                $fileRecord->size = $file->getSize();
+                $fileRecord->format = $file->getClientOriginalExtension();
+                $fileRecord->save();
+            }
+
+            // Update data event
+            $event->update([
+                'tags' => $tagsString,
+                'judul' => $request->judul,
+                'kategori_event_uuid' => $request->kategori_event_uuid,
+                'deskripsi' => $request->deskripsi,
+                'file_uuid' => $fileRecord ? $fileRecord->uuid : $event->file_uuid, // Jika tidak ada file baru, tetap pakai file lama
+            ]);
+
+            return redirect()->route('event.index')->with('success', 'Event berhasil diperbarui');
+        } catch (\Throwable $th) {
+            return redirect()->route('event.index')->with('error', 'Event gagal diperbarui. ' . $th->getMessage());
         }
     }
 

@@ -53,9 +53,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboards/kategori-event/index', [KategoriEventController::class, 'index'])->name('kategorievent.index');
     Route::post('/dashboards/kategori-event/insert', [KategoriEventController::class, 'insert'])->name('kategorievent.insert');
     Route::get('/dashboards/kategori-event/delete/{uuid}', [KategoriEventController::class, 'delete'])->name('kategorievent.delete');
+    Route::post('/dashboards/kategori-event/update/{uuid}', [KategoriEventController::class, 'update'])->name('kategorievent.update');
 
     Route::get('/dashboards/tags-event/index', [TagsController::class, 'index'])->name('tagsevent.index');
     Route::post('/dashboards/tags-event/insert', [TagsController::class, 'insert'])->name('tagsevent.insert');
+    Route::post('/dashboards/tags-event/update/{uuid}', [TagsController::class, 'update'])->name('tagsevent.update');
     Route::get('/dashboards/tags-event/delete/{uuid}', [TagsController::class, 'delete'])->name('tagsevent.delete');
 
     Route::get('/dashboards/galeri/index', [GaleriController::class, 'index'])->name('galeri.index');
@@ -64,6 +66,8 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/dashboards/event/index', [EventController::class, 'index'])->name('event.index');
     Route::get('/dashboards/event/insert', [EventController::class, 'insert'])->name('event.insert');
+    Route::get('/dashboards/event/edit/{uuid}', [EventController::class, 'edit'])->name('event.edit');
+    Route::post('/dashboards/event/update/{uuid}', [EventController::class, 'update'])->name('event.update');
     Route::post('/dashboards/event/post', [EventController::class, 'post'])->name('event.post');
     Route::get('/dashboards/event/delete/{uuid}', [EventController::class, 'delete'])->name('event.delete');
     Route::get('/dashboards/event/done/{uuid}', [EventController::class, 'done'])->name('event.done');

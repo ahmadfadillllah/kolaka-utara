@@ -29,6 +29,20 @@ class TagsController extends Controller
         }
     }
 
+    public function update(Request $request, $uuid)
+    {
+        try {
+            Tags::where('uuid', $uuid)->update([
+                'nama' => $request->nama,
+            ]);
+
+            return redirect()->back()->with('success', 'Update item berhasil');
+
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('info', nl2br('Update item gagal...\n' . $th->getMessage()));
+        }
+    }
+
     public function delete($uuid)
     {
         try {
